@@ -1,16 +1,16 @@
 #### Adri's First R Package
-#
-#   Check Package:             'Cmd + Shift + E'
-#   Test Package:              'Cmd + Shift + T'
 
+### requirements ###
+#
 #install.packages("devtools")
 #install.packages("roxygen2")
 library(devtools)
 library(roxygen2)
 
-#####
 
 
+### roxygen2 ###
+#
 #' @title A Secret Simulation Side Quest
 #' @description
 #' Audio files to be used for instruction, grueling homework, or trolling.
@@ -25,3 +25,21 @@ library(roxygen2)
 #'
 #'
 
+
+### test code ###
+
+play_sample <- function() {
+  audio_file <- system.file("extdata", "agh.wav", package = "GrrgOG")
+  
+  # check file exists
+  if (!file.exists(audio_file)) {
+    stop("Audio file not found. Make sure 'agh.wav' is in the 'inst/extdata' folder.")
+  }
+  
+  # Use the 'av' package to play the audio file
+  tryCatch({
+    av::av_play(audio_file)
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
