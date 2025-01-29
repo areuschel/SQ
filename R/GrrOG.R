@@ -73,6 +73,108 @@ OG_phrases <- function(){
     stopTalking <- "stopTalking.wav"
   )}
 
-#
 
+# play the audio by index
+play_OG <- function(index) {
+  audio_files <- OG_phrases()
 
+  if (index < 1 || index > length(audio_files)) {
+    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
+  }
+
+  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
+
+  if (!file.exists(audio_file) || audio_file == "") {
+    stop("Audio file not found: ", audio_files[index])
+  }
+
+  tryCatch({
+    audio::play(audio::load.wave(audio_file))
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
+
+# Context Needed: Some statistics, mostly misinformation
+
+some_stats <- function(){
+  audios <- c(
+    bestWayToLearn <- "bestWayToLearn.wav",
+    dontThinkYouCan <- "dontThinkYouCan.wav",
+    drunkMath <- "drunkMath.wav",
+    genTrauma <- "genTrauma.wav",
+    joan <- "joan.wav",
+    justMadeItUp <- "justMadeItUp.wav",
+    kendallsTau <- "kendallsTau.wav",
+    letMeCook <- "letMeCook.wav",
+    linearAlgebra <- "linearAlgebra.wav",
+    networkBiz <- "networkBiz.wav",
+    shoutOutBoys <- "shoutOutBoys.wav",
+    statsGod <- "statsGod.wav",
+    stormingCap <- "stormingCap.wav",
+    thinning <- "thinning.wav",
+    useless <- "useless.wav"
+  )
+}
+
+# play the audio by index
+play_stats <- function(index) {
+  audio_files <- some_stats()
+
+  if (index < 1 || index > length(audio_files)) {
+    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
+  }
+
+  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
+
+  if (!file.exists(audio_file) || audio_file == "") {
+    stop("Audio file not found: ", audio_files[index])
+  }
+
+  tryCatch({
+    audio::play(audio::load.wave(audio_file))
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
+
+# Reactionary Noises
+
+Gmisc <- function(){
+  audios <- c(
+    agh <- "agh.wav",
+    choke <- "choke.wav",
+    fsSake <- "fsSake.wav",
+    gag <- "gag.wav",
+    hA <- "hA.wav",
+    idc <- "idc.wav",
+    joan <- "joan.wav",
+    missedCatch <- "missedCatch.wav",
+    ohhhOhhh <- "ohhhOhhh.wav",
+    ooold <- "ooold.wav",
+    silence <- "silence.wav",
+    slamAh <- "slamAh.wav",
+    wohahahaho <- "wohahahaho.wav"
+  )
+}
+
+# play the audio by index
+play_Gmisc <- function(index) {
+  audio_files <- Gmisc()
+
+  if (index < 1 || index > length(audio_files)) {
+    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
+  }
+
+  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
+
+  if (!file.exists(audio_file) || audio_file == "") {
+    stop("Audio file not found: ", audio_files[index])
+  }
+
+  tryCatch({
+    audio::play(audio::load.wave(audio_file))
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
