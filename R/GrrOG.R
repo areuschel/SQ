@@ -1,21 +1,25 @@
 #### Adri's First R Package
-#
-#   Check Package:             'Cmd + Shift + E'
-#   Test Package:              'Cmd + Shift + T'
+options(repos = c(CRAN = "https://cran.r-project.org"))
 
+
+### requirements ###
+#
 #install.packages("devtools")
 #install.packages("roxygen2")
+install.packages("audio")
 library(devtools)
 library(roxygen2)
+library(audio)
 
-#####
 
 
+### roxygen2 ###
+#
 #' @title A Secret Simulation Side Quest
 #' @description
-#' Audio files to be used for instruction, grueling homework, or trolling.
+#' Audio files to be used for instruction, grueling homeworks, or misinformation trivia.
 #'
-#' \code{Grrah} is exactly like \code{skrrrahh} from the BRRR package
+#' \code{Grrah} is modeled after \code{skrrrahh} from the BRRR package
 #' (https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R).
 #'
 #' @param
@@ -24,4 +28,51 @@ library(roxygen2)
 #' @examples
 #'
 #'
+
+
+### test code ###
+
+play_sample <- function() {
+  # path
+  audio_file <- system.file("extdata", "agh.wav", package = "GrrgOG")
+
+  # Check if the file exists
+  if (!file.exists(audio_file) || audio_file == "") {
+    stop("Audio file not found. Make sure 'agh.wav' is in the 'inst/extdata' folder.")
+  }
+
+  # Use 'audio' package to play the audio file
+  tryCatch({
+    audio::play(audio::load.wave(audio_file))
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
+
+# Greg OG: The classics
+
+OG_phrases <- function(){
+  audios <- c(
+    analogy <- "analalogy.wav",
+    answerIsIn <- "answerIsIn.wav",
+    callOnYou <- "callOnYou.wav",
+    crazy <- "crazy.wav",
+    csNerd <- "csNerd.wav",
+    dontDrop <- "dontDrop.wav",
+    figureItOut <- "figureItOut.wav",
+    genuinelyDontKnow <- "genuinelyDontKnow.wav",
+    gradeExams <- "gradeExams.wav",
+    holdOnToYour <- "holdOnToYour.wav",
+    inMyHead <- "inMyHead.wav",
+    inYourHeart2 <- "inYourHeart2.wav",
+    levelsExcite <- "levelsExcite.wav",
+    plsDontCome <- "plsDontCome.wav",
+    quangStream <- "quangStream.wav",
+    seltzer <- "seltzer.wav",
+    sittingDown <- "sittingDown.wav",
+    stopTalking <- "stopTalking.wav"
+  )}
+
+#
+
 
