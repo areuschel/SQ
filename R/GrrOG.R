@@ -6,7 +6,7 @@ options(repos = c(CRAN = "https://cran.r-project.org"))
 #
 #install.packages("devtools")
 #install.packages("roxygen2")
-install.packages("audio")
+#install.packages("audio")
 library(devtools)
 library(roxygen2)
 library(audio)
@@ -19,41 +19,42 @@ library(audio)
 #' @description
 #' Audio files to be used for instruction, grueling homeworks, or misinformation trivia.
 #'
-#' \code{Grrah} is modeled after \code{skrrrahh} from the BRRR package
+#' \code{play_OG, play_stats, and play_Gmisc} is modeled after \code{skrrrahh} from the BRRR package
 #' (https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R).
 #'
-#' @param
-#' @return
-#' @example
+#' @param index Numeric. The index of the audio file to play.
+#' @return Plays an audio file but returns NULL.
 #' @examples
-#'
+#' play_OG(1)  # Plays the first audio file from the OG_phrases audio list.
+#' play_stats(5)  # Plays the fifth audio file from the some_stats audio list.
+#' play_Gmisc(10) # Plays the tenth audio file from the Gmisc audio list.
 #'
 
 
 ### test code ###
 
-play_sample <- function() {
-  # path
-  audio_file <- system.file("extdata", "agh.wav", package = "GrrgOG")
-
-  # Check if the file exists
-  if (!file.exists(audio_file) || audio_file == "") {
-    stop("Audio file not found. Make sure 'agh.wav' is in the 'inst/extdata' folder.")
-  }
-
-  # Use 'audio' package to play the audio file
-  tryCatch({
-    audio::play(audio::load.wave(audio_file))
-  }, error = function(e) {
-    warning("Could not play the audio file: ", e$message)
-  })
-}
+# play_sample <- function() {
+#   # path
+#   audio_file <- system.file("extdata", "agh.wav", package = "GrrgOG")
+#
+#   # Check if the file exists
+#   if (!file.exists(audio_file) || audio_file == "") {
+#     stop("Audio file not found. Make sure 'agh.wav' is in the 'inst/extdata' folder.")
+#   }
+#
+#   # Use 'audio' package to play the audio file
+#   tryCatch({
+#     audio::play(audio::load.wave(audio_file))
+#   }, error = function(e) {
+#     warning("Could not play the audio file: ", e$message)
+#   })
+# }
 
 # Greg OG: The classics
 
 OG_phrases <- function(){
   audios <- c(
-    analogy <- "analalogy.wav",
+    analogy <- "analogy.wav",
     answerIsIn <- "answerIsIn.wav",
     callOnYou <- "callOnYou.wav",
     crazy <- "crazy.wav",
@@ -103,7 +104,6 @@ some_stats <- function(){
     dontThinkYouCan <- "dontThinkYouCan.wav",
     drunkMath <- "drunkMath.wav",
     genTrauma <- "genTrauma.wav",
-    joan <- "joan.wav",
     justMadeItUp <- "justMadeItUp.wav",
     kendallsTau <- "kendallsTau.wav",
     letMeCook <- "letMeCook.wav",
