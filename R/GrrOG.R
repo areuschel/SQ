@@ -15,12 +15,14 @@ library(audio)
 
 ### roxygen2 ###
 #
-#' @title A Secret Simulation Side Quest
+#' @title The Greg OG Soundboard Package
 #' @description
-#' Audio files to be used for instruction, grueling homeworks, or misinformation trivia.
+#' A collection of Dr. Greg Matthews PhDizzle's iconic noises, reactions,
+#' and occasional statistics references.
 #'
-#' \code{play_OG, play_stats, and play_Gmisc} is modeled after \code{skrrrahh} from the BRRR package
-#' (https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R).
+#' This package allows users to play various sound clips with simple function calls.
+#'
+#' Code is modeled after \code{skrrrahh} from the BRRR package (https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R).
 #'
 #' @param index Numeric. The index of the audio file to play.
 #' @return Plays an audio file but returns NULL.
