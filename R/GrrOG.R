@@ -50,6 +50,9 @@ NULL
 #' @return NULL (plays an audio file).
 #' @examples
 #' play_OG(1)  # Plays the first OG phrase.
+#'
+#' @importFrom audio play
+#' @importFrom audio load.wave
 #' @export
 play_OG <- function(index) {
   audio_files <- OG_phrases()
@@ -79,6 +82,8 @@ play_OG <- function(index) {
 #' @return NULL (plays an audio file).
 #' @examples
 #' play_stats(1)  # Plays the first statistics-related phrase.
+#' @importFrom audio play
+#' @importFrom audio load.wave
 #' @export
 play_stats <- function(index) {
   audio_files <- some_stats()
@@ -108,6 +113,9 @@ play_stats <- function(index) {
 #' @return NULL (plays an audio file).
 #' @examples
 #' play_Gmisc(1)  # Plays the first miscellaneous phrase.
+#'
+#' @importFrom audio play
+#' @importFrom audio load.wave
 #' @export
 play_Gmisc <- function(index) {
   audio_files <- Gmisc()

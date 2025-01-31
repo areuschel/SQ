@@ -17,4 +17,5 @@ This function plays a sound clip from the "Gmisc" list.
 }
 \examples{
 play_Gmisc(1)  # Plays the first miscellaneous phrase.
+
 }
