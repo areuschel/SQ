@@ -2,7 +2,7 @@
 % Please edit documentation in R/GrrOG.R
 \name{play_OG}
 \alias{play_OG}
-\title{The Greg OG Soundboard Package}
+\title{Play an OG Sound Clip}
 \usage{
 play_OG(index)
 }
@@ -13,15 +13,6 @@ play_OG(index)
 NULL (plays an audio file).
 }
 \description{
-A collection of Dr. Greg Matthews PhDizzle's iconic noises, reactions,
-and occasional statistics references.
-
-This package allows users to play various sound clips with simple function calls.
-
-Code is modeled after \code{skrrrahh} from the BRRR package (https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R).
-
-Play an OG Sound Clip
-
 This function plays a sound clip from the "OG phrases" list.
 }
 \examples{

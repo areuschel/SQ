@@ -23,7 +23,9 @@ library(audio)
 #' This package allows users to play various sound clips with simple function calls.
 #'
 #' Code is modeled after \code{skrrrahh} from the BRRR package (https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R).
-#'
+#' @name GrrgOG
+NULL
+
 #' Play an OG Sound Clip
 #'
 #' This function plays a sound clip from the "OG phrases" list.
