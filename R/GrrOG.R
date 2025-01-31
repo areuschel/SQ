@@ -24,13 +24,92 @@ library(audio)
 #'
 #' Code is modeled after \code{skrrrahh} from the BRRR package (https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R).
 #'
-#' @param index Numeric. The index of the audio file to play.
-#' @return Plays an audio file but returns NULL.
-#' @examples
-#' play_OG(1)  # Plays the first audio file from the OG_phrases audio list.
-#' play_stats(5)  # Plays the fifth audio file from the some_stats audio list.
-#' play_Gmisc(10) # Plays the tenth audio file from the Gmisc audio list.
+#' Play an OG Sound Clip
 #'
+#' This function plays a sound clip from the "OG phrases" list.
+#'
+#' @param index Numeric. The index of the audio file to play.
+#' @return NULL (plays an audio file).
+#' @examples
+#' play_OG(1)  # Plays the first OG phrase.
+#' @export
+play_OG <- function(index) {
+  audio_files <- OG_phrases()
+
+  if (index < 1 || index > length(audio_files)) {
+    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
+  }
+
+  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
+
+  if (!file.exists(audio_file) || audio_file == "") {
+    stop("Audio file not found: ", audio_files[index])
+  }
+
+  tryCatch({
+    audio::play(audio::load.wave(audio_file))
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
+
+#' Play a Statistics-Related Sound Clip
+#'
+#' This function plays a sound clip from the "some statistics" list.
+#'
+#' @param index Numeric. The index of the audio file to play.
+#' @return NULL (plays an audio file).
+#' @examples
+#' play_stats(1)  # Plays the first statistics-related phrase.
+#' @export
+play_stats <- function(index) {
+  audio_files <- some_stats()
+
+  if (index < 1 || index > length(audio_files)) {
+    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
+  }
+
+  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
+
+  if (!file.exists(audio_file) || audio_file == "") {
+    stop("Audio file not found: ", audio_files[index])
+  }
+
+  tryCatch({
+    audio::play(audio::load.wave(audio_file))
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
+
+#' Play a Miscellaneous Sound Clip
+#'
+#' This function plays a sound clip from the "Gmisc" list.
+#'
+#' @param index Numeric. The index of the audio file to play.
+#' @return NULL (plays an audio file).
+#' @examples
+#' play_Gmisc(1)  # Plays the first miscellaneous phrase.
+#' @export
+play_Gmisc <- function(index) {
+  audio_files <- Gmisc()
+
+  if (index < 1 || index > length(audio_files)) {
+    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
+  }
+
+  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
+
+  if (!file.exists(audio_file) || audio_file == "") {
+    stop("Audio file not found: ", audio_files[index])
+  }
+
+  tryCatch({
+    audio::play(audio::load.wave(audio_file))
+  }, error = function(e) {
+    warning("Could not play the audio file: ", e$message)
+  })
+}
 
 
 ### test code ###
@@ -77,27 +156,6 @@ OG_phrases <- function(){
   )}
 
 
-# play the audio by index
-play_OG <- function(index) {
-  audio_files <- OG_phrases()
-
-  if (index < 1 || index > length(audio_files)) {
-    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
-  }
-
-  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
-
-  if (!file.exists(audio_file) || audio_file == "") {
-    stop("Audio file not found: ", audio_files[index])
-  }
-
-  tryCatch({
-    audio::play(audio::load.wave(audio_file))
-  }, error = function(e) {
-    warning("Could not play the audio file: ", e$message)
-  })
-}
-
 # Context Needed: Some statistics, mostly misinformation
 
 some_stats <- function(){
@@ -119,26 +177,6 @@ some_stats <- function(){
   )
 }
 
-# play the audio by index
-play_stats <- function(index) {
-  audio_files <- some_stats()
-
-  if (index < 1 || index > length(audio_files)) {
-    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
-  }
-
-  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
-
-  if (!file.exists(audio_file) || audio_file == "") {
-    stop("Audio file not found: ", audio_files[index])
-  }
-
-  tryCatch({
-    audio::play(audio::load.wave(audio_file))
-  }, error = function(e) {
-    warning("Could not play the audio file: ", e$message)
-  })
-}
 
 # Reactionary Noises
 
@@ -160,23 +198,3 @@ Gmisc <- function(){
   )
 }
 
-# play the audio by index
-play_Gmisc <- function(index) {
-  audio_files <- Gmisc()
-
-  if (index < 1 || index > length(audio_files)) {
-    stop("Invalid index. Choose a number between 1 and ", length(audio_files), ".")
-  }
-
-  audio_file <- system.file("extdata", audio_files[index], package = "GrrgOG")
-
-  if (!file.exists(audio_file) || audio_file == "") {
-    stop("Audio file not found: ", audio_files[index])
-  }
-
-  tryCatch({
-    audio::play(audio::load.wave(audio_file))
-  }, error = function(e) {
-    warning("Could not play the audio file: ", e$message)
-  })
-}
