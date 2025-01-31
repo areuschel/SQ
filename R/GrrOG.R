@@ -28,7 +28,8 @@ library(audio)
 #'   \item \code{\link{play_Gmisc}}: Plays a sound from the "Reactionary noises" collection.
 #' }
 #'
-#' Code is modeled after \code{skrrrahh} from the BRRR package (\link{https://github.com/brooke-watson/BRRR/blob/master/R/skrrrahh.R}).
+#' Code is exactly like \code{skrrrahh} from the BRRR package \link[BRRR]{skrrrahh}.
+#'
 #'
 #' @examples
 #' # Play the first sound in the OG phrases collection
