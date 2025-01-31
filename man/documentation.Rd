@@ -16,15 +16,18 @@ Includes the following functions:
   \item \code{play_OG()} - Plays a classic Greg OG phrase.
   \item \code{play_stats()} - Plays a statistics-adjacent phrase.
   \item \code{play_Gmisc()} - Plays a miscellaneous sound.
-}
 
+Arguments:
 \arguments{
   \item{index}{Numeric. The index of the audio file to play.}
 }
 
+Returns:
 \value{
   Plays an audio file but returns \code{NULL}.
 }
+}
+
 
 }
 \examples{
