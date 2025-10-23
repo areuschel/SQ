@@ -22,8 +22,9 @@ Code is exactly like skrrrahh() from the [BRRR](https://github.com/brooke-watson
 ### Installing GrrgOG
 
 1. Install [devtools](https://github.com/r-lib/devtools)
+2. Install [audio](https://cran.r-project.org/web/packages/audio/index.html)
 
-2. Run the following commands
+3. Run the following commands
    
 ```
 install_github("areuschel/SQ")
